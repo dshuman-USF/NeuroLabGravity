@@ -1,0 +1,9 @@
+      CHARACTER version*(*)
+      PARAMETER (version = '0.17.11')
+
+      CHARACTER compiler*(*)
+      PARAMETER (compiler = 'gfortran')
+
+      INTEGER(8),EXTERNAL :: gopen
+      INTEGER(8),EXTERNAL :: gopen3d
+      INTEGER(8) fildes

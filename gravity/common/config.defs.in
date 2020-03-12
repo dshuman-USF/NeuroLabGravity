@@ -1,0 +1,9 @@
+      CHARACTER version*(*)
+      PARAMETER (version = '@PACKAGE_VERSION@')
+
+      CHARACTER compiler*(*)
+      PARAMETER (compiler = '@F77@')
+
+      INTEGER(@SIZEOF_VOID_P@),EXTERNAL :: gopen
+      INTEGER(@SIZEOF_VOID_P@),EXTERNAL :: gopen3d
+      INTEGER(@SIZEOF_VOID_P@) fildes

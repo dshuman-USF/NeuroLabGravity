@@ -1,0 +1,1 @@
+/home/roconnor/common/view_camera.c

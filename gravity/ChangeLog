@@ -1,0 +1,611 @@
+2020-01-10  dshuman@usf.edu
+
+	* 4_xtrydis_04/xtrydis_04.f: the cnt buffer was 32 bytes, but a for loop on
+	line 381 starts at 37. Current compiler catches this and complains. Make it
+	bigger.
+	* configure.ac: bump to 1.17.11.
+
+2017-10-26  Dale Shuman  <dshuman@cisc1>
+
+	* configure.ac: bump to version 1.17.10. See ChangeLog in common for
+	changes.
+	* xsbf.c: This is from ../../common/ChangeLog
+	The len param was not used in gopen and gopen3d calls. Some of the fortran
+	callers were lucky that the title string was in memory that had a zero in
+	it. The fireworks program was not so lucky and giberish was printed. The
+	gravity_gui program needs the window title for the screen cap function. Dup
+	the code in the ogl_sb to use len.
+
+2017-10-19  dshuman@health.usf.edu
+
+	* configure.ac: bump version to 1.17.9
+	* Makefile.am: correct dir paths for creating symlinks to docs. Links not
+	being created on package install because $(DESTDIR) not used in install hook.
+
+2017-10-18  dshuman@health.usf.edu
+
+	* configure.ac: bump version to 1.17.8
+	* Makefile.am: Oops, forgot to make changes related to the documentation.
+	Time for a new release.
+
+2017-10-18  Dale Shuman  <dshuman@cisc1>
+
+	* configure.ac: bump version to 1.17.7
+	* 8_direct3d_04/direct3d_bl_mp_04_2.f: move the Origin text a bit so it
+	is no longer clipped. Also had to add in a prompt when using the CR step mode
+	to rotate the plot so appease gravity_gui. Also added in a 'q' option to
+	quit.
+	* 8_direct3d_04/direct3d_bl_sig_01_2.f: ditto.
+	* 8_direct3d_04/direct3d_bl_sub_04_2.f: Move Origin text.
+	* 8_direct3d_04/direct3d_bl_04.f: Move Origin text.
+	* 8_direct3d_04/direct3d_bl_mp_04_2.f: Move Origin text.
+	* 6_xslope_09/xslope_04.f: remove legacy comma to stop compiler complaint.
+	* 4_xtrydis_04/spike.f: make window height larger.
+	* 4_xtrydis_04/threed.f: make window height larger.
+
+2017-10-18  dale@health.usf.edu
+
+	* 13_spkpat_04/ranz.f: replace tabs with spaces and remove unused lable to
+	silence compiler complaints
+	* 4_xtrydis_04/threed.f: increase graphic window heights.
+	* 4_xtrydis_04/spike.f: ditto.
+
+2017-10-12  Dale Shuman  <dshuman@cisc1>
+
+	* configure.ac: Bump to rev 1.17.6
+	* Makefile.am: add in support for installing the gravity flowchart pdf
+	file.
+
+2017-10-11  Dale Shuman  <dshuman@cisc1>
+	* configure.ac: Bump to 1.17.5.
+	* Makefile.am:  Didn't work, try again
+	* configure.ac: Bump to 1.17.4. Forgot to include new manual version and
+	also the way I was doing symbolic links in previous Makefile.am did not
+	work.
+	* Makefile.am: Update to reference new manual version. Also add in vars for
+	the names to minimize number of changes. Also add in support for dpkg to
+	create a symbolic link to the new version as part of package installation.
+	* debian/gravity.links: Create to support the above symbolic linkage.
+
+2017-10-11  dshuman@health.usf.edu
+
+	* configure.ac: bump to 1.17.3 to support gravity-gui 1.0.0 release.
+
+2017-10-11  dale@health.usf.edu
+
+	* 9_fireworks_04/fireworks_04.f: Make graphic window taller.
+	* 8_direct3d_04/direct3d_bl_04.f: Prompt for explicit loop back to start to
+	apease the gravity-gui program.
+	* 8_direct3d_04/direct3d_bl_sig_01_2.f: ""
+	* 8_direct3d_04/direct3d_bl_sig_05_2.f: ""
+	* 13_spkpat_04/spkpat6bg_04.f: spelling correction befor -> before
+	* 13_spkpat_04/spkpat6bgr.f:  ""
+	* 13_spkpat_04/spkpat.f:      ""
+	* 4_xtrydis_04/threed.f: Make graphic window taller.
+	* 4_xtrydis_04/spike.f:  "" 
+	* 4_xtrydis_04/expb.f:   ""
+
+2017-09-29  Dale Shuman  <dshuman@cisc1>
+
+	* configure.ac: bump to rev 1.17.2 for release. These changes are to
+	assuage the gravity_gui program.
+	* 13_spkpat_04/spkpat6bg_04.f: bump up size of fnames to 30 to be
+	compatible with other gravity programs.
+	* 13_spkpat_04/spkpat6bgr.f:  ditto
+	* 13_spkpat_04/spkpat6kbg_04.f:  ditto
+	* 13_spkpat_04/spkpat.f: ditto
+
+2017-08-29  dshuman@health.usf.edu
+
+	* 5_xprojtm_04/xprojtm_04.f: line 372, add in call to "press CR to
+	continue". Blank line with no obvious program expectation confuses. Also
+	causes problems with gravity_gui program.
+
+2017-08-17  dshuman@health.usf.edu
+
+	* configure.ac: New libgsl-dev breaks package. Rebuild. No code changes.
+	* configure.ac: Bump to 0.17.1.
+
+2017-06-14  Dale Shuman  <dshuman@cisc1>
+
+	* configure.ac: bump up to 0.17.0
+	* Makefile.am: Change name of the user's manual to conform with current
+   * name.
+
+2017-03-16  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.16.0
+
+	* 14_3djmpbg_04/3djmp.f (THREEDJMP, plot_static, GET_ANALOG)
+	(DISPLAY_ALL): add a question to enable/disable the phase plot
+
+	* 14_3djmpbg_04/3djmp.f (THREEDJMP, GET_PHASE): add a question to
+	control the smoothing of the phase plot
+
+	* 14_3djmpbg_04/3djmp.f (draw_phase): add loop exit condition so
+	we don't calculate with invalid data.
+
+	* 14_3djmpbg_04/3djmp.f (DISPLAY_ALL): change 1e6 to 1d6 so we
+	don't lose significant bits comparing to an integer.  Fixes
+	compiler warning.
+
+2016-12-09  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.15.0
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04):
+	* 6_xslope_09/plot_op3_v2.f (plot_op3, stitle, labels, label_cs):
+	* 6_xslope_09/plot_op2_v2.f (plot_op2, stitle2, labels2)
+	(label_cs2):
+	* 6_xslope_09/head_04.def:
+	* 6_xslope_09/colors.f (graybb, hot): restrict color options to
+	gray and color, invert the gray display, and use the same color
+	map as s-transform for the color display
+
+2016-12-08  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.14.0
+
+	* 13_spkpat_04/spkpat6bgr.f (main):
+	* 13_spkpat_04/ranz.f (ranz):
+	* 13_spkpat_04/Makefile.am (bin_PROGRAMS, spkpat6bgr_SOURCES):
+	added the spkpat6bgr program by resurrecting spkpat6bgr.f from
+	2002 and applying the changes that have been made to
+	spkpat6bg_04.f since then.
+
+2016-11-22  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.13.1
+
+	* 13_spkpat_04/spkpat6kbg_04.f (readx, idl, wriary, wrfwk):
+	* 13_spkpat_04/spkpat6bg_04.f (readx, idl, wriary, wrfwk):
+	replace ipairs=120 with ipairs=2016
+
+2016-10-30  Russell O'Connor  <russ@tampabay.rr.com>
+
+	* configure.ac: bump rev to 0.13.0
+
+	* debian/control (Build-Depends): remove hardening-wrapper
+
+	* 6_xslope_09/xslope.f:
+	* 6_xslope_09/Makefile.am (xslopewip_SOURCES, AM_FFLAGS)
+	(bin_PROGRAMS): add work-in-progress program
+
+	* 13_spkpat_04/pcg_basic.c:
+	* 13_spkpat_04/pcg_basic.h:
+	* 13_spkpat_04/surdat.f:
+	* configure.ac (LAPACK):
+	* 13_spkpat_04/spkpat6kbg_04.f (main):
+	* 13_spkpat_04/spkpat6bg_04.f (main):
+	* 13_spkpat_04/Makefile.am (spkpat6bg_SOURCES)
+	(spkpat6kbg_SOURCES, spkpat6bg.o, spkpat6kbg.o, AM_FFLAGS)
+	(LDADD): add new surrogate to spkpat6bg and spkpat6kbg
+
+	* 13_spkpat_04/svddemo.f:
+	* 13_spkpat_04/spkpatdist.f:
+	* 13_spkpat_04/spkpat.f:
+	* 13_spkpat_04/Makefile.am (bin_PROGRAMS, spkpatwip_SOURCES)
+	(spkpatdist_SOURCES, svddemo_SOURCES): add work-in-progress
+	programs
+
+2016-05-31  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.12.0
+
+	* debian/control (Build-Depends): change libpng12-dev to libpng-dev
+
+	* 14_3djmpbg_04/3djmp.f (READSPK, DISPLAY_ALL, THREEDJMP): make spark
+	resolution match resolution of idlmov.out
+
+2016-05-27  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* debian/control (Depends): add ffmpeg
+
+	* 14_3djmpbg_04/3djmp.f (THREEDJMP): change 1 to i so multiple
+	input files will work.
+
+2016-03-22  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* 10_hiresspk_04/plane_poly_04.f (plane):
+	* 10_hiresspk_04/surfacev3.f (surface):
+	* 10_hiresspk_04/hires_04.f (main): change window size to 1024x768
+
+	* configure.ac: bump rev to 0.11.0
+
+	* ogl_sb/view_camera.c (flt, view_camera): set doubles to zero if
+	they would be denormalized or zero in a float, before assigning
+	them to float.  Fixes underflow and denormal messages.
+
+	* ogl_sb/ogl_sb.c (gopen3d, gclose): destroy the window on close
+	instead of keeping it in case it is reopened.  Fixes size staying
+	the same when reopened with a different size.
+
+	* common/sbparam.defs: define cam_parallel, DISTORT, and
+	FRACTIONAL.  Fixes rendering bugs.
+
+	* 14_3djmpbg_04/rana2.f (rana2):
+	* 14_3djmpbg_04/Makefile.am (3djmp_SOURCES, AM_FFLAGS)
+	(AM_CFLAGS):
+	* 14_3djmpbg_04/pace.c:
+	* 14_3djmpbg_04/3djmp.f (main): refactor and add movie feature
+
+2016-03-21  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.10.4
+
+	* Makefile.am (SUBDIRS, install-exec-hook):
+	* configure.ac:
+	* 2_gbatch_04/ghead.def:
+	* 2_gbatch_04/postodir3d.f:
+	* 2_gbatch_04/icel_win.f:
+	* 2_gbatch_04/possub.f:
+	* 2_gbatch_04/gmint.f:
+	* 2_gbatch_04/gbatch.f:
+	* 2_gbatch_04/Makefile.am (gbatch_SOURCES, AM_FFLAGS): refactor
+	and consolidate gbatch and gsig
+
+2016-02-23  Russell O'Connor  <russ@tampabay.rr.com>
+
+	* configure.ac: bump rev to 0.10.3
+
+	* 10_hiresspk_04/plane_poly_04.f (plane): include sbparam.defs.
+	Fixes blank window.
+
+	* ogl_sb/ogl_sb.c (gclose): do nothing when passed a NULL pointer.
+	Fixes "hires" segfault.  Also, if the pointer is not NULL, make it
+	NULL, so it won't be reused after gclose.
+
+2016-01-06  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.10.2, rebuild for libgsl2
+
+	* debian/control (Build-Depends): add pkg-config, gfortran, and
+	libncurses5-dev.  Won't build without them.
+
+2015-11-06  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.10.1
+
+	* 13_spkpat_04/spkpat6kbg_04.f (main, readx):
+	* 13_spkpat_04/spkpat6bg_04.f (main, readx): change name of read
+	subroutine from "read" to "readx".  Fixes clash with builtin "read".
+
+2015-06-05  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.10.0
+
+	* 8_direct3d_04/direct3d_bl_mp_04_2.f (direct3d_bl_mp5):
+	* 8_direct3d_04/direct3d_bl_sig_01_2.f (direct3d_bl_sig_04): add
+	step-by-step option
+
+2014-09-04  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.21
+
+	* Makefile.am (dist_doc_DATA): add sample data and scripts and
+	result
+
+	* 2012_Concise_Gravity_Manual_v9.6.doc:
+	* 2012_Concise_Gravity_Manual_v9.6.pdf: update manual
+
+	* postinst.template: switch to common version of this file
+
+	* common/ps_starbase.c: update version of common file to
+	incorporate pslinemerge into ps_starbase.c.
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04): initialize amxsl and sl
+	arrays before filling them.  Fixes spurious significance when
+	using the "LOOP TO START" OPTION.
+
+2014-02-08  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.20
+
+	* 6_xslope_09/surstats.c (main, plotxvel, plothist): change
+	"system();" to "if(system());".  Quiets compiler warning about
+	unused result.
+
+	* configure.ac: bump rev to 0.9.19
+
+	* Makefile.am (EXTRA_DIST): add debian
+	(install-exec-hook): delete
+	(dist_doc_DATA): add README
+
+2014-02-07  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* common/Makefile.am (libcommon_a_SOURCES): add mode.c.  Fixes
+	failure to build in 4_xtrydis_04.
+
+	* configure.ac: add subdir-objects to AM_INIT_AUTOMAKE to avoid
+	future incompatiblities.
+
+2012-10-25  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.18
+
+	* Makefile.am (dist_doc_DATA, EXTRA_DIST): add the manual
+
+	* 8_direct3d_04/direct3d_bl_sub_04_2.f (numbers):
+	* 8_direct3d_04/direct3d_bl_sig_05_2.f (numbers):
+	* 8_direct3d_04/direct3d_bl_sig_01_2.f (numbers):
+	* 8_direct3d_04/direct3d_bl_mp_04_2.f (numbers):
+	* 8_direct3d_04/direct3d_bl_04.f (numbers):
+	make the field width for the second number zero.  Fixes
+	large gap between numbers.
+
+	* 8_direct3d_04/direct3d_bl_sig_05_2.f (direct3d_bl_sig_05):
+	* 8_direct3d_04/direct3d_bl_sig_01_2.f (direct3d_bl_sig_04):
+	* 8_direct3d_04/direct3d_bl_04.f (direct3d_bl_04): put 'continue'
+	before the 'end do', not after.  Fixes showing only pairs with the
+	first cell.
+
+	* 5_xprojtm_04/xprojtm_04.f (main): change 'n =' to 'm ='.  Fixes
+	extra circles on plot.
+
+	* 5_xprojtm_04/xprojtm_04.f (main): clear whole rectangle at once,
+	instead of ellipses individually.
+
+2012-08-10  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.16
+
+	* 4_xtrydis_04/xtrydis_04_v2.f (_04): wrap icolor at 32.
+
+	* 5_xprojtm_04/xprojtm_04.f (main): wrap icolor at 34.
+
+	* 4_xtrydis_04/threed.f (threed): wrap icolor at 32. Fixes
+	stepping off end of array and blank traces.
+
+	* 4_xtrydis_04/spike.f (spike): wrap icolor at 32, not 33.  Fixes
+	stepping off end of array.
+
+	* configure.ac: bump rev to 0.9.15
+
+	* 4_xtrydis_04/spike.f (spike): reuse colors for plot if there are
+	more plots than colors.  Fixes blank plots.
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04): don't mark signficant
+	velocity red if there were no controls.  Fixes spurious
+	indications of significance.
+
+2012-08-09  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* 6_xslope_09/plot_op3_v2.f (label_cs, labels, stitle, plot_op3):
+	include 'config.defs' for 'fildes' declaration, and delete
+	'integer*4 fildes' declarations.  Silences compiler warning and
+	maybe makes things work.
+
+	* 3_gsig_04/icel_win_04.f (icel_win):
+	* 2_gbatch_04/icel_win_04.f (icel_win): change '0.0' to '0' for
+	assignment to an int.  Silences compiler warning.
+
+	* 3_gsig_04/icel_win_04.f (icel_win):
+	* 2_gbatch_04/icel_win_04.f (icel_win): use 'int(,kind())' for
+	converting int*4 to int*2.  Silences compiler warning.
+
+	* 3_gsig_04/gsig_08_v1.f (gsig_08_v1):
+	* 2_gbatch_04/gbatch_08_v1.f (gbatch_08_v1): use 'real()' for
+	converting real*8 to real*4.  Silences compiler warning.
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04):
+	* 5_xprojtm_04/xprojtm_04.f (main):
+	* 4_xtrydis_04/xtrydis_04_v2.f (_04):
+	* 3_gsig_04/icel_win_04.f (icel_win):
+	* 3_gsig_04/gmintsig_05_v1.f (gmintsig_04):
+	* 2_gbatch_04/icel_win_04.f (icel_win):
+	* 2_gbatch_04/gmint_05_v1.f (gmint_04):
+	* 2_gbatch_04/gbatch_08_v1.f (gbatch_08_v1):
+	* 15_cyclesorter_04/cyclesorter_04.f (cyclesorter_04):
+	* 13_spkpat_04/spkpat6kbg_04.f (ransub, main):
+	* 13_spkpat_04/spkpat6bg_04.f (ransub, main):
+	* 12_local_block_shift_04/lbs_04_v3.f (lbs_04_v3):
+	* 12a_random_shuf_05/ransub.f (ransub):
+	* 12a_random_shuf_05/blkshuf_05.f (blkshuf_05): use 'int()' for
+	converting real to int.  Silences compiler warning.
+
+	* 9_fireworks_04/fireworks_04.f (main):
+	* 8_direct3d_04/direct3d_bl_sub_04_2.f (direct3d_bl_sub):
+	* 8_direct3d_04/direct3d_bl_sig_05_2.f (direct3d_bl_sig_05):
+	* 8_direct3d_04/direct3d_bl_sig_01_2.f (direct3d_bl_sig_04):
+	* 8_direct3d_04/direct3d_bl_mp_04_2.f (direct3d_bl_mp5):
+	* 8_direct3d_04/direct3d_bl_04.f (direct3d_bl_04):
+	* 6_xslope_09/xslope_09_v31.f (xslope_04):
+	* 5_xprojtm_04/xprojtm_04.f (main):
+	* 4_xtrydis_04/xtrydis_04_v2.f (_04):
+	* 4_xtrydis_04/threed.f (threed):
+	* 4_xtrydis_04/spike.f (spike):
+	* 14_3djmpbg_04/3djmp_04.f (main):
+	* 10_hiresspk_04/surfacev3.f (surface):
+	* 10_hiresspk_04/plane_poly_04.f (plane):
+	* 10_hiresspk_04/hires_04.f (main): change 'fildes=gclose' to
+	'call gclose'.  Silences real-to-int compiler warning.  There's no
+	return value from gclose in the first place.
+
+2011-05-04  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.14
+
+	* 3_gsig_04/gsig_08_v1.f (gsig_08_v1):
+	* 2_gbatch_04/gbatch_08_v1.f (gbatch_08_v1): replace ',' in read
+	format string with 1x.  Fixes 'Constant string in input format'
+	runtime error.
+
+2011-05-03  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.13
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04): delete extra gopen.
+	Fixes extra empty window being displayed.
+
+2011-04-19  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.12
+
+	* 13_spkpat_04/spkpat6bg_04.f (main): reindent, split lines to fix
+	line truncation
+
+	* configure.ac (PKG_CHECK_MODULES): add glu - I don't know how it
+	was finding this library before.
+
+	* 11_gtune_04/xgtune_04.f (xgtunev_04):
+	* 2_gbatch_04/ghead_04.def:
+	* 3_gsig_04/ghead_04.def:
+	* 8_direct3d_04/head_04.def:
+	* 4_xtrydis_04/head_04.def: remove trailing spaces on lines that
+	were generating compiler warnings about truncation.
+
+2011-01-09  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.11
+
+	* 4_xtrydis_04/threed.f (threed): replace busy loop with call to
+	sleep.  Fixes auto display moving too fast.
+
+	* 5_xprojtm_04/xprojtm_04.f (main): call make_picture_current
+	after each frame of the circle plot animation.  Fixes blank screen
+	during animation followed by sudden appearance of final frame.
+
+	* 6_xslope_09/surstats.c (get_timadj): cast error arg to long to
+	match %ld.  Fixes compiler complaint on 32 bit systems.
+
+2011-01-04  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.10
+
+	* /home/roconnor/common/ogl_sb.c: add ellipse routine
+	* 5_xprojtm_04/xprojtm_04.f (main): change last parameter of
+	vdc_extent from 0 to 1.
+	* 5_xprojtm_04/Makefile.am (xprojtm_SOURCES, LDADD, AM_CFLAGS):
+	Switch from xsbf to ogl_sb.  Fixes misplaced mis-sized text.
+
+	* 5_xprojtm_04/xprojtm_04.f (main): replace screen clear code with
+	call to mode.
+	* 5_xprojtm_04/Makefile.am (xprojtm_SOURCES): replace mode.f with
+	common/mode.c
+	(LDADD): add -lncurses
+	Fixes trash on terminal screen and failure to clear.
+
+2010-12-15  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.9
+
+	* extensive: added ogl_sb (3d Starbase emulation library) and
+	ported done direct3d, hiresspk, 3djmpbg, and xtrydis to use it.
+	Got all subdirs to compile without error.
+
+
+2009-09-29  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.8
+
+	* 3_gsig_04/gsig_08_v1.f (gsig_08_v1):
+	* 2_gbatch_04/gbatch_08_v1.f (gbatch_08_v1): Make PDIS2 double
+	precision.  Fixes velocity off by 20%.  Maybe fixes excessive
+	significant flats.
+
+2009-09-25  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.7
+
+	* 3_gsig_04/gmintsig_05_v1.f (gmintsig_04):
+	* 2_gbatch_04/gmint_05_v1.f (gmint_04): subtract TIMADJ from code
+	22 time.  Fixes overly large time in xslope.
+
+2009-09-24  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.6
+
+	* 3_gsig_04/gmintsig_05_v1.f (gmintsig_04):
+	* 2_gbatch_04/gmint_05_v1.f (gmint_04): set endtime at code 22
+	instead of at the last spike.  Fixes slice size changes for
+	surrogates.
+
+2009-09-15  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.5*
+	* Makefile.am: add install-exec-hook to put sources in
+	/lab/SOURCES
+
+	* 6_xslope_09/surstats.c (main): speed up 700x.  Show the
+	velocities for the data's extreme events.
+
+	* 2_gbatch_04/gmint_05_v1.f (gmint_04): untabify
+
+2009-09-11  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.4
+
+	* 6_xslope_09/surstats.c (main): add program to analyze surfile.
+
+	* 6_xslope_09/Makefile.am ($(xslope_09_OBJECTS)): depend on
+	head_04.def.  Fixes failure to recompile after changing
+	head_04.def.
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04): use ACCESS='STREAM'
+	with gfortran, and direct io with a recl of 4 otherwise, to get no
+	record lengths in the file.
+
+	* common/config.defs.in: add parameter to identify compiler
+
+	* configure.ac: bump rev to 0.9.3
+
+	* 4_xtrydis_04/colors32.f (colors): use assignment instead of data
+	statements
+
+	* 6_xslope_09/head_04.def:
+	* 4_xtrydis_04/head_04.def:
+	* 3_gsig_04/ghead_04.def:
+	* 2_gbatch_04/ghead_04.def: increase nsppc (max spikes) to 20000
+
+	* 2_gbatch_04/gmint_05_v1.f (gmint_04):
+	* 4_xtrydis_04/xtrydis_04_v2.f (_04):
+	* 4_xtrydis_04/spike.f (spike): use nsppc instead of hard coding
+	max spikes number.
+
+2009-09-10  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* 6_xslope_09/colors.f (colors): don't use data statements because
+	the values are set at run time.  Fixes black screen.
+
+2009-09-04  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04):
+	* 6_xslope_09/modej.f (MODE):  disable attempt to clear the
+	screen.  Fixes garbage on screen.
+
+	* configure.ac: bump rev to 0.9.3
+
+	* 4_xtrydis_04/xtrydis_04_v2.f: add calls to background_color,
+	perimeter_color, line_color, and clear_view_surface.  Fixes
+	garbled display.
+	delete clear screen code.  Fixes garbage on command line.
+	set the "more" flag to zero in text2d and append_text calls when
+	there will be no more text appended.  Fixes text showing up in the
+	wrong place.
+
+	* 6_xslope_09/xslope_09_v31.f (xslope_04):
+	* 5_xprojtm_04/xprojtm_04.f (main):
+	* 4_xtrydis_04/xtrydis_04_v2.f:
+	* 4_xtrydis_04/threed.f (threed):
+	* 4_xtrydis_04/spike.f (spike):
+	add window title to gopen.  Fixes segfault on startup.
+
+	* 4_xtrydis_04/xtrydis_04_v2.f: delete extra gclose.  Fixes
+	segfault on exit.
+
+	* 4_xtrydis_04/mode.f (MODE): disable attempt to clear the
+	screen.  Fixes garbage on screen.
+
+	* configure.ac: bump rev to 0.9.2
+
+	* 3_gsig_04/gmintsig_05_v1.f (gmintsig_04): declare ETEMPL
+	integer.  Fixes "expected integer, got real"
+
+2009-09-03  Russell O'Connor  <roconnor@health.usf.edu>
+
+	* configure.ac: bump rev to 0.9.1
+
+	* 2_gbatch_04/gmint_05_v1.f (gmint_04): declare ETEMPL integer.
+	Fixes "expected integer, got real"
+
+

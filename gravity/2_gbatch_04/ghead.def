@@ -1,0 +1,61 @@
+
+C       HEADER BLOCK STRUCTURE FOR GRAVITY PROGS AFTER GPOS6G
+C       V1.01  26-APR-84  GLG  
+c       v4.0 bgl 13-jul-87
+c       first version for hp350...return code to reflect george's
+c       original code except max +ACM- of cells will be 13
+c       v4.1 add posfile (char block)for use in possub,trysub subroutines
+c       v4.2 add TIMAT array to this header, removed from gmint
+c       v4.21 increse qe qafs arrays to (100000,13)
+c       v4.30 decrease qe qafs arrays (80000,13)
+c               decrease idlist evtlist arrays (26000),timat (2000,26)
+c               rename var ishife to ishifte etc to conform with g's
+c               new gmint routine (our gmint7)
+c       v10.0 change qe qafs arrays to (120000,10)
+c       v32 increase N to 32 max 3/16/94 bgl
+c       had to change IDSET from 10 to 32 and adjust common block
+c       increased IBLOCK and RBLOCK to 50 ... was 30
+c
+c
+c       add some parameters and set number of different neuron codes
+c       (ncl) to 64; other array adjustments
+c
+c
+c
+c
+C       ****************-DEFINITION OF HEADER BLOCK STRUCTURE-************
+      integer ncl,nsz,nsppc,lstsz
+      parameter (ncl=64)        !number of codes handled
+      parameter (nsz=480000)    !size of charge history array - 1st dimension
+      parameter (nsppc=20000)   !max number of spikes in the busiest channel
+      parameter (lstsz=ncl*nsppc)
+
+      integer idlist (lstsz)
+      real qafs(nsz,ncl),qe(nsz,ncl),TIMAT(nsppc,ncl*2), evtlist(lstsz)
+C       note: second dimension of TIMAT must=ncl*2
+      COMMON/GROUP1/CBLOCK
+      COMMON /GROUP2/ IBLOCK,RBLOCK      
+      common/group3/qe, qafs, idlist, evtlist,TIMAT
+      Character*30 CBLOCK(10),PROGID,IFNAME,OFNAME    
+c
+        integer IBLOCK(ncl+10),N,IHS,ISTPFR,LFRAM,ISHIFTA,ISHIFTE,LAST,
+     1  NORM,IDSET(ncl),nshft
+c
+        real RBLOCK(50),DELTIM,SLIDE,CRDI,ENDTIME,FWDTAU,FWDDEC,FWDINC,
+     1  BAKTAU,BAKDEC,BAKINC,ADJF,FS,STIMPER
+C
+      equivalence (CBLOCK(1),PROGID),(CBLOCK(2),IFNAME)   
+     1 ,(CBLOCK(3),OFNAME)
+       equivalence (IBLOCK(1),N),(IBLOCK(2),IHS),(IBLOCK(3),ISTPFR)   
+     1 ,(IBLOCK(4),LFRAM), (IBLOCK(5),ISHIFTA),(IBLOCK(6),ISHIFTE)   
+     2 ,(IBLOCK(7),LAST),(IBLOCK(8),NORM),(IBLOCK(9),nshft) 
+     3 ,(IBLOCK(10),IDSET(1))  !NOTE uses up IBLOCK(10 to NCL+10)
+c
+      equivalence (RBLOCK(1),DELTIM),(RBLOCK(2),SLIDE),(RBLOCK(3),CRDI)
+     1 ,(RBLOCK(4),ENDTIME),(RBLOCK(5),FWDTAU),(RBLOCK(6),FWDDEC)   
+     2 ,(RBLOCK (7),FWDINC),(RBLOCK(8),BAKTAU), (RBLOCK(9),BAKDEC)   
+     3 ,(RBLOCK(10),BAKINC),(RBLOCK(11),ADJF),(RBLOCK(12),FS)   
+     4 ,(RBLOCK(13),STIMPER)
+C
+C     ********-END OF HEADER BLOCK DEFINITION-*****************
+

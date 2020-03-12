@@ -1,0 +1,39 @@
+
+C       HEADER BLOCK STRUCTURE FOR gstat*, trydis*
+c       modified for 64 codes
+C       *****DEFINITION OF HEADER BLOCK STRUCTURE*****      
+c       add some parameters and set number of different neuron codes
+c       (ncl) to 64; other array adjustments
+c
+c
+c
+c
+C       ****************-DEFINITION OF HEADER BLOCK STRUCTURE-************
+        parameter (ncl=64)!number of codes handled
+        parameter (ncolor=256)!number of colors defined
+        parameter (nsppc=20000)!max number of spikes in the busiest channel
+
+        COMMON/GROUP1/CBLOCK
+        COMMON /GROUP2/ IBLOCK,RBLOCK      
+        common/group3/TIMAT(nsppc,2*ncl),R(ncolor),G(ncolor),B(ncolor)
+C       note: second dimension of TIMAT must =2*ncl
+        character*30 CBLOCK(10),PROGID,IFNAME,OFNAME    
+        integer IBLOCK(ncl+10),N,IHS,ISTPFR,LFRAM,ISHIFTA,ISHIFTE,LAST,
+     1  NORM,IDSET(ncl),nshft
+        real RBLOCK(50),DELTIM,SLIDE,CRDI,ENDTIME,FWDTAU,FWDDEC,FWDINC,
+     1  BAKTAU,BAKDEC,BAKINC,ADJF,FS,STIMPER
+C
+        equivalence (CBLOCK(1),PROGID),(CBLOCK(2),IFNAME)   
+     1  ,(CBLOCK(3),OFNAME)
+        equivalence (IBLOCK(1),N),(IBLOCK(2),IHS),(IBLOCK(3),ISTPFR)   
+     1  ,(IBLOCK(4),LFRAM), (IBLOCK(5),ISHIFTA),(IBLOCK(6),ISHIFTE)   
+     2  ,(IBLOCK(7),LAST),(IBLOCK(8),NORM),(IBLOCK(9),nshft) 
+     3  ,(IBLOCK(10),IDSET(1))  !NOTE IDSET uses up IBLOCK(10 to NCL+10)
+      equivalence (RBLOCK(1),DELTIM),(RBLOCK(2),SLIDE),(RBLOCK(3),CRDI)
+     1  ,(RBLOCK(4),ENDTIME),(RBLOCK(5),FWDTAU),(RBLOCK(6),FWDDEC)   
+     2  ,(RBLOCK (7),FWDINC),(RBLOCK(8),BAKTAU), (RBLOCK(9),BAKDEC)   
+     3  ,(RBLOCK(10),BAKINC),(RBLOCK(11),ADJF),(RBLOCK(12),FS)   
+     4  ,(RBLOCK(13),STIMPER)
+C
+C     *****END OF HEADER BLOCK DEFINITION*****
+

@@ -1,0 +1,14 @@
+--------------------------------------------------------------------------------
+Tue Sep  8 09:42:33 EDT 2009
+
+gbatch
+======
+
+asks for parameters at start-up, normally read from stdin redirected
+from a parameter file
+
+creates an output file whose name is taken from the second line of the
+parameter file.  This file must not already exist.  It is
+conventionally given a name with a .gout extension.  gbatch refers to
+it as the "OUTPUT POSIT VS TIME FILE" or the "OUTPUT POSITION FILE"
+It is an unformatted fortran big-endian file.

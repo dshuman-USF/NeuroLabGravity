@@ -1,0 +1,55 @@
+Source: gravity
+Section: local
+Priority: extra
+Maintainer: Dale Shuman <dshuman@.usf.edu>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev,
+  libxcb-dri2-0-dev,
+  libdpkg-perl,
+  libxcb-glx0-dev,
+  libsigsegv2,
+  libx11-dev,
+  perl-modules,
+  x11proto-core-dev,
+  libxfixes-dev,
+  perl,
+  libxcb1-dev,
+  libpthread-stubs0-dev,
+  x11proto-xf86vidmode-dev,
+  libgl1-mesa-dev,
+  mime-support,
+  gawk,
+  libftgl-dev,
+  liblocale-gettext-perl,
+  libxdmcp-dev,
+  libpopt0,
+  libgsl-dev,
+  libxau-dev,
+  x11proto-xext-dev,
+  libfreetype6-dev,
+  libpng-dev,
+  libglib2.0-0,
+  libgfortran-4.8-dev,
+  x11proto-damage-dev,
+  libxdamage-dev,
+  libdrm-dev,
+  libxxf86vm-dev,
+  libx11-xcb-dev,
+  libxext-dev,
+  libgfortran3,
+  x11proto-kb-dev,
+  libglu1-mesa-dev,
+  x11proto-fixes-dev,
+  pkg-config,
+  gfortran,
+  libncurses5-dev 
+Standards-Version: 3.9.4
+Homepage: cisc3
+#Vcs-Git: git://git.debian.org/collab-maint/gravity.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/gravity.git;a=summary
+
+Package: gravity
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, ffmpeg
+Description: A tool to analyze dynamic associations among spike trains
+ The "gravity" method is a tool for analysis of dynamic associations
+ among groups of simultaneously monitored neurons. 
